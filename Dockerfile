@@ -8,4 +8,7 @@ RUN cd /home/jhipster && \
 RUN cd /home/jhipster/generator-jhipster-quarkus && \
     echo jhipster | sudo -S npm link
 
+ADD ./dep-stuff /home/jhipster/prefetch
+RUN cd /home/jhipster/prefetch && ./mvnw dependency:go-offline
+
 RUN echo jhipster | sudo -S chmod 777 ~/.config -R
