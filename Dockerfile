@@ -9,7 +9,7 @@ RUN cd /home/jhipster/generator-jhipster-quarkus && \
     echo jhipster | sudo -S npm link
 
 ARG MAVEN_VERSION=3.6.3
-ARG USER_HOME_DIR="/jhipster"
+ARG USER_HOME_DIR="/home/jhipster"
 ARG BASE_URL=https://apache.osuosl.org/maven/maven-3/${MAVEN_VERSION}/binaries
 
 RUN echo jhipster | sudo -S mkdir -p /usr/share/maven /usr/share/maven/ref
