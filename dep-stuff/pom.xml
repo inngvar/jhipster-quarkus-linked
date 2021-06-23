@@ -1,52 +1,71 @@
 <?xml version="1.0"?>
-<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+         xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>com.synq.info</groupId>
-  <artifactId>ddc-info-service</artifactId>
+
+  <groupId>com.synq.bigcats</groupId>
+  <artifactId>big-cats</artifactId>
   <version>1.0.0-SNAPSHOT</version>
-  <name>Ddc Info Service</name>
+  <packaging>jar</packaging>
+  <name>Big Cats</name>
+
   <properties>
-    <archunit-junit5.version>0.12.0</archunit-junit5.version>
-    <checkstyle.version>8.27</checkstyle.version>
-    <frontend-maven-plugin.version>1.6</frontend-maven-plugin.version>
-    <git-commit-id-plugin.version>4.0.0</git-commit-id-plugin.version>
-    <jacoco-maven-plugin.version>0.8.5</jacoco-maven-plugin.version>
-    <jacoco.utReportFile>${jacoco.utReportFolder}/test.exec</jacoco.utReportFile>
-    <jacoco.utReportFolder>${project.build.directory}/jacoco/test</jacoco.utReportFolder>
-    <java.version>11</java.version>
-    <junit.itReportFolder>${project.testresult.directory}/integrationTest</junit.itReportFolder>
-    <junit.utReportFolder>${project.testresult.directory}/test</junit.utReportFolder>
-    <lifecycle-mapping.version>1.0.0</lifecycle-mapping.version>
-    <mapstruct.version>1.4.1.Final</mapstruct.version>
-    <maven-checkstyle.version>3.1.0</maven-checkstyle.version>
-    <maven-clean-plugin.version>3.1.0</maven-clean-plugin.version>
-    <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
-    <maven-eclipse-plugin.version>2.10</maven-eclipse-plugin.version>
-    <maven-enforcer-plugin.version>3.0.0-M3</maven-enforcer-plugin.version>
-    <maven-failsafe-plugin.version>3.0.0-M4</maven-failsafe-plugin.version>
-    <maven-idea-plugin.version>2.2.1</maven-idea-plugin.version>
-    <maven-javadoc-plugin.version>3.1.1</maven-javadoc-plugin.version>
-    <maven-resources-plugin.version>3.1.0</maven-resources-plugin.version>
-    <maven-surefire-plugin.version>3.0.0-M4</maven-surefire-plugin.version>
-    <maven.build.timestamp.format>yyyyMMddHHmmss</maven.build.timestamp.format>
-    <maven.compiler.source>${java.version}</maven.compiler.source>
-    <maven.compiler.target>${java.version}</maven.compiler.target>
+    <!-- Build properties -->
     <maven.version>3.6.3</maven.version>
+    <java.version>11</java.version>
     <node.version>v12.13.1</node.version>
     <npm.version>6.13.4</npm.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     <project.testresult.directory>${project.build.directory}/test-results</project.testresult.directory>
-    <properties-maven-plugin.version>1.0.0</properties-maven-plugin.version>
-    <quarkus-plugin.version>1.13.1.Final</quarkus-plugin.version>
-    <quarkus.logManager>org.jboss.logmanager.LogManager</quarkus.logManager>
+    <maven.build.timestamp.format>yyyyMMddHHmmss</maven.build.timestamp.format>
+    <maven.compiler.source>${java.version}</maven.compiler.source>
+    <maven.compiler.target>${java.version}</maven.compiler.target>
+
+    <!-- Dependency properties -->
     <quarkus.platform.version>1.13.1.Final</quarkus.platform.version>
+    <mapstruct.version>1.3.1.Final</mapstruct.version>
     <resteasy-problem.version>0.9.4</resteasy-problem.version>
-    <sonar-maven-plugin.version>3.7.0.1746</sonar-maven-plugin.version>
+    <archunit-junit5.version>0.12.0</archunit-junit5.version>
     <wiremock.version>2.27.2</wiremock.version>
-    <commons-lang3.version>3.12.0</commons-lang3.version>
+
+    <!-- Plugin versions -->
+    <maven-clean-plugin.version>3.1.0</maven-clean-plugin.version>
+    <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
+    <maven-javadoc-plugin.version>3.1.1</maven-javadoc-plugin.version>
+    <maven-eclipse-plugin.version>2.10</maven-eclipse-plugin.version>
+    <maven-enforcer-plugin.version>3.0.0-M3</maven-enforcer-plugin.version>
+    <maven-failsafe-plugin.version>3.0.0-M4</maven-failsafe-plugin.version>
+    <maven-idea-plugin.version>2.2.1</maven-idea-plugin.version>
+    <maven-resources-plugin.version>3.1.0</maven-resources-plugin.version>
+    <maven-surefire-plugin.version>3.0.0-M4</maven-surefire-plugin.version>
+    <maven-checkstyle.version>3.1.0</maven-checkstyle.version>
+    <git-commit-id-plugin.version>4.0.0</git-commit-id-plugin.version>
+    <jacoco-maven-plugin.version>0.8.5</jacoco-maven-plugin.version>
+    <lifecycle-mapping.version>1.0.0</lifecycle-mapping.version>
+    <properties-maven-plugin.version>1.0.0</properties-maven-plugin.version>
+    <sonar-maven-plugin.version>3.7.0.1746</sonar-maven-plugin.version>
+    <quarkus-plugin.version>1.13.1.Final</quarkus-plugin.version>
+    <liquibase-maven-plugin.version>4.3.2</liquibase-maven-plugin.version>
+    <liquibase-maven-plugin-quarkus-liquibase.version>1.13.1.Final</liquibase-maven-plugin-quarkus-liquibase.version>
+    <liquibase-maven-plugin-quarkus-hibernate-orm-panache.version>1.13.1.Final</liquibase-maven-plugin-quarkus-hibernate-orm-panache.version>
+    <liquibase-maven-plugin-liquibase-core.version>4.3.2</liquibase-maven-plugin-liquibase-core.version>
+    <liquibase-maven-plugin-validation-api.version>2.0.1.Final</liquibase-maven-plugin-validation-api.version>
+    <liquibase-maven-plugin-liquibase-hibernate5.version>4.1.1</liquibase-maven-plugin-liquibase-hibernate5.version>
+    <liquibase-maven-plugin-spring-data-jpa.version>2.3.4.RELEASE</liquibase-maven-plugin-spring-data-jpa.version>
+
+    <!-- Plugin properties -->
+    <checkstyle.version>8.27</checkstyle.version>
+    <jacoco.utReportFolder>${project.build.directory}/jacoco/test</jacoco.utReportFolder>
+    <jacoco.utReportFile>${jacoco.utReportFolder}/test.exec</jacoco.utReportFile>
+    <!-- <jacoco.itReportFolder>${project.build.directory}/jacoco/integrationTest</jacoco.itReportFolder> -->
+    <!-- <jacoco.itReportFile>${jacoco.itReportFolder}/integrationTest.exec</jacoco.itReportFile> -->
+    <junit.utReportFolder>${project.testresult.directory}/test</junit.utReportFolder>
+    <junit.itReportFolder>${project.testresult.directory}/integrationTest</junit.itReportFolder>
+    <quarkus.logManager>org.jboss.logmanager.LogManager</quarkus.logManager>
+    <!-- jhipster-needle-maven-property -->
   </properties>
+
   <dependencyManagement>
     <dependencies>
       <dependency>
@@ -58,6 +77,7 @@
       </dependency>
     </dependencies>
   </dependencyManagement>
+
   <dependencies>
     <dependency>
       <groupId>io.quarkus</groupId>
@@ -112,11 +132,6 @@
       <groupId>io.micrometer</groupId>
       <artifactId>micrometer-registry-prometheus</artifactId>
     </dependency>
-      <dependency>
-          <groupId>org.camunda.bpm</groupId>
-          <artifactId>camunda-external-task-client</artifactId>
-          <version>1.4.1</version>
-      </dependency>
     <dependency>
       <groupId>io.quarkus</groupId>
       <artifactId>quarkus-smallrye-health</artifactId>
@@ -124,6 +139,18 @@
     <dependency>
       <groupId>io.quarkus</groupId>
       <artifactId>quarkus-smallrye-openapi</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>io.quarkus</groupId>
+      <artifactId>quarkus-cache</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>io.quarkus</groupId>
+      <artifactId>quarkus-container-image-jib</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>io.quarkus</groupId>
+      <artifactId>quarkus-kubernetes</artifactId>
     </dependency>
     <dependency>
       <groupId>org.mapstruct</groupId>
@@ -167,6 +194,8 @@
       <version>${archunit-junit5.version}</version>
       <scope>test</scope>
     </dependency>
+    <!-- Adding the engine dependency to the surefire-plugin unfortunately does not work in the current version. -->
+    <!-- https://www.archunit.org/userguide/html/000_Index.html#_junit_5 -->
     <dependency>
       <groupId>com.tngtech.archunit</groupId>
       <artifactId>archunit-junit5-engine</artifactId>
@@ -181,47 +210,23 @@
       <scope>test</scope>
     </dependency>
     <dependency>
-        <groupId>com.github.tomakehurst</groupId>
-        <artifactId>wiremock-jre8</artifactId>
-        <version>${wiremock.version}</version>
-        <scope>test</scope>
-        <exclusions>
-            <exclusion>
-                <artifactId>javax.servlet-api</artifactId>
-                <groupId>javax.servlet</groupId>
-            </exclusion>
-        </exclusions>
+      <groupId>com.github.tomakehurst</groupId>
+      <artifactId>wiremock-jre8</artifactId>
+      <version>${wiremock.version}</version>
+      <scope>test</scope>
     </dependency>
-    <dependency>
-      <groupId>io.quarkus</groupId>
-      <artifactId>quarkus-rest-client-jackson</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>io.quarkus</groupId>
-      <artifactId>quarkus-jdbc-h2</artifactId>
-    </dependency>
-      <dependency>
-          <groupId>io.quarkus</groupId>
-          <artifactId>quarkus-container-image-jib</artifactId>
-      </dependency>
-      <dependency>
-          <groupId>io.quarkus</groupId>
-          <artifactId>quarkus-kubernetes</artifactId>
-      </dependency>
-      <dependency>
-          <groupId>org.apache.commons</groupId>
-          <artifactId>commons-lang3</artifactId>
-          <version>${commons-lang3.version}</version>
-      </dependency>
+    <!-- jhipster-needle-maven-add-dependency -->
   </dependencies>
   <build>
     <defaultGoal>compile quarkus:dev</defaultGoal>
     <pluginManagement>
       <plugins>
         <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-clean-plugin</artifactId>
           <version>${maven-clean-plugin.version}</version>
         </plugin>
+
         <plugin>
           <groupId>org.codehaus.mojo</groupId>
           <artifactId>properties-maven-plugin</artifactId>
@@ -241,17 +246,13 @@
           </executions>
         </plugin>
         <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-compiler-plugin</artifactId>
           <version>${maven-compiler-plugin.version}</version>
           <configuration>
             <source>${java.version}</source>
             <target>${java.version}</target>
           </configuration>
-        </plugin>
-        <plugin>
-          <groupId>com.github.eirslett</groupId>
-          <artifactId>frontend-maven-plugin</artifactId>
-          <version>${frontend-maven-plugin.version}</version>
         </plugin>
         <plugin>
           <groupId>pl.project13.maven</groupId>
@@ -305,6 +306,7 @@
           </executions>
         </plugin>
         <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-javadoc-plugin</artifactId>
           <version>${maven-javadoc-plugin.version}</version>
           <configuration>
@@ -312,6 +314,7 @@
           </configuration>
         </plugin>
         <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-eclipse-plugin</artifactId>
           <version>${maven-eclipse-plugin.version}</version>
           <configuration>
@@ -320,6 +323,7 @@
           </configuration>
         </plugin>
         <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-enforcer-plugin</artifactId>
           <version>${maven-enforcer-plugin.version}</version>
           <executions>
@@ -346,20 +350,23 @@
             <rules>
               <requireMavenVersion>
                 <message>You are running an older version of Maven. JHipster Quarkus requires at least
-                                    Maven
-                                    ${maven.version}</message>
+                  Maven
+                  ${maven.version}
+                </message>
                 <version>[${maven.version},)</version>
               </requireMavenVersion>
               <requireJavaVersion>
                 <message>You are running an incompatible version of Java. JHipster Quarkus supports JDK
-                                    8 to
-                                    13.</message>
+                  8 to
+                  13.
+                </message>
                 <version>[1.8,14)</version>
               </requireJavaVersion>
             </rules>
           </configuration>
         </plugin>
         <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-idea-plugin</artifactId>
           <version>${maven-idea-plugin.version}</version>
           <configuration>
@@ -367,10 +374,12 @@
           </configuration>
         </plugin>
         <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-resources-plugin</artifactId>
           <version>${maven-resources-plugin.version}</version>
         </plugin>
         <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-surefire-plugin</artifactId>
           <version>${maven-surefire-plugin.version}</version>
           <configuration>
@@ -381,10 +390,12 @@
           </configuration>
         </plugin>
         <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-failsafe-plugin</artifactId>
           <version>${maven-failsafe-plugin.version}</version>
         </plugin>
         <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-checkstyle-plugin</artifactId>
           <version>${maven-checkstyle.version}</version>
           <executions>
@@ -428,33 +439,43 @@
           </executions>
         </plugin>
       </plugins>
+      <!-- jhipster-needle-maven-add-plugin-management -->
     </pluginManagement>
     <plugins>
       <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
       </plugin>
       <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-checkstyle-plugin</artifactId>
       </plugin>
       <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-javadoc-plugin</artifactId>
       </plugin>
       <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-eclipse-plugin</artifactId>
       </plugin>
       <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-enforcer-plugin</artifactId>
       </plugin>
       <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-failsafe-plugin</artifactId>
       </plugin>
       <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-idea-plugin</artifactId>
       </plugin>
       <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-resources-plugin</artifactId>
       </plugin>
       <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-surefire-plugin</artifactId>
       </plugin>
       <plugin>
@@ -474,68 +495,67 @@
         <artifactId>quarkus-maven-plugin</artifactId>
         <version>${quarkus-plugin.version}</version>
       </plugin>
+      <plugin>
+        <groupId>org.liquibase</groupId>
+        <artifactId>liquibase-maven-plugin</artifactId>
+        <version>${liquibase-maven-plugin.version}</version>
+        <configuration>
+          <changeLogFile>src/main/resources/config/liquibase/master.xml</changeLogFile>
+          <referenceUrl>hibernate:spring:com.synq.bigcats.domain?dialect=io.quarkus.hibernate.orm.runtime.dialect.QuarkusPostgreSQL10Dialect&amp;hibernate.physical_naming_strategy=com.synq.bigcats.config.hibernate.JHipsterCompatiblePhysicalNamingStrategy&amp;hibernate.implicit_naming_strategy=com.synq.bigcats.config.hibernate.JHipsterCompatibleImplicitNamingStrategy</referenceUrl>
+          <referenceDriver>liquibase.ext.hibernate.database.connection.HibernateDriver</referenceDriver>
+        </configuration>
+        <dependencies>
+          <dependency>
+            <groupId>io.quarkus</groupId>
+            <artifactId>quarkus-liquibase</artifactId>
+            <version>${liquibase-maven-plugin-quarkus-liquibase.version}</version>
+          </dependency>
+          <dependency>
+            <groupId>io.quarkus</groupId>
+            <artifactId>quarkus-hibernate-orm-panache</artifactId>
+            <version>${liquibase-maven-plugin-quarkus-hibernate-orm-panache.version}</version>
+          </dependency>
+          <dependency>
+            <groupId>org.liquibase</groupId>
+            <artifactId>liquibase-core</artifactId>
+            <version>${liquibase-maven-plugin-liquibase-core.version}</version>
+          </dependency>
+          <dependency>
+            <groupId>javax.validation</groupId>
+            <artifactId>validation-api</artifactId>
+            <version>${liquibase-maven-plugin-validation-api.version}</version>
+          </dependency>
+          <dependency>
+            <groupId>org.liquibase.ext</groupId>
+            <artifactId>liquibase-hibernate5</artifactId>
+            <version>${liquibase-maven-plugin-liquibase-hibernate5.version}</version>
+          </dependency>
+          <dependency>
+            <groupId>org.springframework.data</groupId>
+            <artifactId>spring-data-jpa</artifactId>
+            <version>${liquibase-maven-plugin-spring-data-jpa.version}</version>
+          </dependency>
+        </dependencies>
+      </plugin>
+      <!-- jhipster-needle-maven-add-plugin -->
     </plugins>
   </build>
   <profiles>
-    <profile>
-      <id>webpack</id>
-      <activation>
-        <file>
-        </file>
-      </activation>
-      <build>
-        <plugins>
-          <plugin>
-            <groupId>com.github.eirslett</groupId>
-            <artifactId>frontend-maven-plugin</artifactId>
-            <executions>
-              <execution>
-                <id>install node and npm</id>
-                <goals>
-                  <goal>install-node-and-npm</goal>
-                </goals>
-                <configuration>
-                  <nodeVersion>${node.version}</nodeVersion>
-                  <npmVersion>${npm.version}</npmVersion>
-                </configuration>
-              </execution>
-              <execution>
-                <id>npm install</id>
-                <goals>
-                  <goal>npm</goal>
-                </goals>
-              </execution>
-              <execution>
-                <id>webpack build dev</id>
-                <phase>generate-resources</phase>
-                <goals>
-                  <goal>npm</goal>
-                </goals>
-                <configuration>
-                  <arguments>run webpack:build</arguments>
-                  <environmentVariables>
-                    <APP_VERSION>${project.version}</APP_VERSION>
-                  </environmentVariables>
-                  <npmInheritsProxyConfigFromMaven>false</npmInheritsProxyConfigFromMaven>
-                </configuration>
-              </execution>
-            </executions>
-          </plugin>
-        </plugins>
-      </build>
-      <properties>
-        <quarkus.profile>dev</quarkus.profile>
-      </properties>
-    </profile>
     <profile>
       <id>dev</id>
       <activation>
         <activeByDefault>true</activeByDefault>
       </activation>
       <properties>
+        <!-- default Quarkus profiles -->
         <quarkus.profile>dev</quarkus.profile>
       </properties>
+
       <dependencies>
+        <dependency>
+          <groupId>io.quarkus</groupId>
+          <artifactId>quarkus-jdbc-h2</artifactId>
+        </dependency>
       </dependencies>
     </profile>
     <profile>
@@ -569,56 +589,7 @@
               </filesets>
             </configuration>
           </plugin>
-          <plugin>
-            <groupId>com.github.eirslett</groupId>
-            <artifactId>frontend-maven-plugin</artifactId>
-            <executions>
-              <execution>
-                <id>install node and npm</id>
-                <goals>
-                  <goal>install-node-and-npm</goal>
-                </goals>
-                <configuration>
-                  <nodeVersion>${node.version}</nodeVersion>
-                  <npmVersion>${npm.version}</npmVersion>
-                </configuration>
-              </execution>
-              <execution>
-                <id>npm install</id>
-                <goals>
-                  <goal>npm</goal>
-                </goals>
-                <configuration>
-                  <arguments>install</arguments>
-                </configuration>
-              </execution>
-              <execution>
-                <id>webpack build test</id>
-                <phase>test</phase>
-                <goals>
-                  <goal>npm</goal>
-                </goals>
-                <configuration>
-                  <arguments>run webpack:test</arguments>
-                  <npmInheritsProxyConfigFromMaven>false</npmInheritsProxyConfigFromMaven>
-                </configuration>
-              </execution>
-              <execution>
-                <id>webpack build prod</id>
-                <phase>generate-resources</phase>
-                <goals>
-                  <goal>npm</goal>
-                </goals>
-                <configuration>
-                  <arguments>run webpack:prod</arguments>
-                  <environmentVariables>
-                    <APP_VERSION>${project.version}</APP_VERSION>
-                  </environmentVariables>
-                  <npmInheritsProxyConfigFromMaven>false</npmInheritsProxyConfigFromMaven>
-                </configuration>
-              </execution>
-            </executions>
-          </plugin>
+          <!-- JHipster Quarkus hack to move from target/classes/static to /target/classes/META-INF/resources -->
           <plugin>
             <artifactId>maven-resources-plugin</artifactId>
             <executions>
@@ -646,6 +617,7 @@
         </plugins>
       </build>
       <properties>
+        <!-- default Quarkus profiles -->
         <quarkus.profile>prod</quarkus.profile>
       </properties>
     </profile>
@@ -669,7 +641,9 @@
                 </goals>
                 <configuration>
                   <systemProperties>
-                    <native.image.path>${project.build.directory}/${project.build.finalName}-runner</native.image.path>
+                    <native.image.path>
+                      ${project.build.directory}/${project.build.finalName}-runner
+                    </native.image.path>
                   </systemProperties>
                 </configuration>
               </execution>
@@ -681,5 +655,6 @@
         <quarkus.package.type>native</quarkus.package.type>
       </properties>
     </profile>
+    <!-- jhipster-needle-maven-add-profile -->
   </profiles>
 </project>
